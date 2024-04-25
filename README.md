@@ -81,5 +81,30 @@ def create_food(snake):
             return food
 
 # Lancer le jeu
-game()
+import tkinter as tk
+import subprocess
+
+# Fonction appelée lors du clic sur le bouton "Lancer le jeu"
+def start_game():
+    subprocess.Popen(["python", "snake_game.py"])  # Remplacez "snake_game.py" par le nom de votre fichier de jeu
+
+# Création de la fenêtre principale
+root = tk.Tk()
+root.title("Snake Game Launcher")
+
+# Création du bouton "Lancer le jeu"
+start_button = tk.Button(root, text="Lancer le jeu", command=start_game)
+start_button.pack(pady=20)
+
+# Fonction pour quitter l'application
+def quit_app():
+    root.destroy()
+
+# Création du bouton "Quitter"
+quit_button = tk.Button(root, text="Quitter", command=quit_app)
+quit_button.pack(pady=10)
+
+# Exécution de la boucle principale de l'interface graphique
+root.mainloop()
+
 
